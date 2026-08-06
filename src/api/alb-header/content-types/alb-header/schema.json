@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "alb_headers",
+  "info": {
+    "singularName": "alb-header",
+    "pluralName": "alb-headers",
+    "displayName": "ALB-Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "topMenu": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.navigation",
+      "repeatable": true
+    },
+    "serviceMenu": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.navigation",
+      "repeatable": true
+    }
+  }
+}
