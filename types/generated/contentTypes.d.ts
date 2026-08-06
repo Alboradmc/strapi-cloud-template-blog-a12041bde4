@@ -776,6 +776,50 @@ export interface ApiAlbStaticPageAlbStaticPage
   };
 }
 
+export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
+  collectionName: 'alb_usp_lists';
+  info: {
+    displayName: 'ALB-USP-List';
+    pluralName: 'alb-usp-lists';
+    singularName: 'alb-usp-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-usp-list.alb-usp-list'
+    > &
+      Schema.Attribute.Private;
+    metaTags: Schema.Attribute.Component<'shared.seo', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    seoSchema: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -1429,6 +1473,7 @@ declare module '@strapi/strapi' {
       'api::alb-header.alb-header': ApiAlbHeaderAlbHeader;
       'api::alb-homepage.alb-homepage': ApiAlbHomepageAlbHomepage;
       'api::alb-static-page.alb-static-page': ApiAlbStaticPageAlbStaticPage;
+      'api::alb-usp-list.alb-usp-list': ApiAlbUspListAlbUspList;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
