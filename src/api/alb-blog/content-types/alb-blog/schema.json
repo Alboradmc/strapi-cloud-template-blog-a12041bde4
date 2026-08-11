@@ -87,6 +87,28 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::alb-blog.alb-blog"
+    },
+    "weatherInfo": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.weather-info",
+      "repeatable": false,
+      "required": false
+    },
+    "highlightExperiences": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.highlight-experience",
+      "repeatable": true,
+      "required": false
     }
   }
 }

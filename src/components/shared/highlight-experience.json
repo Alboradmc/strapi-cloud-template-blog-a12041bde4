@@ -1,0 +1,40 @@
+{
+    "collectionName": "components_destination_highlight_experiences",
+    "info": {
+        "displayName": "Highlight Experience",
+        "icon": "star"
+    },
+    "attributes": {
+        "image": {
+            "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        },
+        "link": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        }
+    }
+}

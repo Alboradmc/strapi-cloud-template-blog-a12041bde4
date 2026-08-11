@@ -502,6 +502,15 @@ export interface ApiAlbBlogAlbBlog extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    highlightExperiences: Schema.Attribute.Component<
+      'shared.highlight-experience',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -547,6 +556,12 @@ export interface ApiAlbBlogAlbBlog extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    weatherInfo: Schema.Attribute.Component<'shared.weather-info', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 

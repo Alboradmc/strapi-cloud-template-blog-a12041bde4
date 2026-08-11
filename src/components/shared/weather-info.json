@@ -1,0 +1,63 @@
+{
+    "collectionName": "components_destination_weather_infos",
+    "info": {
+        "displayName": "Weather Info",
+        "icon": "cloud"
+    },
+    "attributes": {
+        "currentWeather": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        },
+        "bestTimeToVisit": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        },
+        "targetAudience": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        },
+        "currentWeatherIcon": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        },
+        "bestTimeIcon": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        },
+        "targetAudienceIcon": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        }
+    }
+}

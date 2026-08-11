@@ -24,6 +24,35 @@ export interface SharedFooterLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHighlightExperience extends Struct.ComponentSchema {
+  collectionName: 'components_destination_highlight_experiences';
+  info: {
+    displayName: 'Highlight Experience';
+    icon: 'star';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -82,9 +111,11 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    property: Schema.Attribute.String & Schema.Attribute.Required;
+    tag: Schema.Attribute.Enumeration<['Meta', 'Link']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Meta'>;
   };
 }
 
@@ -131,11 +162,43 @@ export interface SharedTitleDescription extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWeatherInfo extends Struct.ComponentSchema {
+  collectionName: 'components_destination_weather_infos';
+  info: {
+    displayName: 'Weather Info';
+    icon: 'cloud';
+  };
+  attributes: {
+    bestTimeIcon: Schema.Attribute.Media<'images' | 'files'>;
+    bestTimeToVisit: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    currentWeather: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    currentWeatherIcon: Schema.Attribute.Media<'images' | 'files'>;
+    targetAudience: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    targetAudienceIcon: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.app-download': SharedAppDownload;
       'shared.footer-links': SharedFooterLinks;
+      'shared.highlight-experience': SharedHighlightExperience;
       'shared.media': SharedMedia;
       'shared.navigation': SharedNavigation;
       'shared.quote': SharedQuote;
@@ -144,6 +207,7 @@ declare module '@strapi/strapi' {
       'shared.slider': SharedSlider;
       'shared.social-link': SharedSocialLink;
       'shared.title-description': SharedTitleDescription;
+      'shared.weather-info': SharedWeatherInfo;
     }
   }
 }
