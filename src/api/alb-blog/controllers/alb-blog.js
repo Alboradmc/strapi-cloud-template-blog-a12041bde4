@@ -22,11 +22,6 @@ module.exports = createCoreController('api::alb-blog.alb-blog', ({ strapi }) => 
                         targetAudienceIcon: true,
                     },
                 },
-                destinationPackages: {
-                    populate: {
-                        image: true,
-                    },
-                },
                 highlightExperiences: {
                     populate: {
                         image: true,
@@ -55,11 +50,6 @@ module.exports = createCoreController('api::alb-blog.alb-blog', ({ strapi }) => 
                         currentWeatherIcon: true,
                         bestTimeIcon: true,
                         targetAudienceIcon: true,
-                    },
-                },
-                destinationPackages: {
-                    populate: {
-                        image: true,
                     },
                 },
                 highlightExperiences: {
