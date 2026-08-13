@@ -23,6 +23,12 @@
     "description": {
       "type": "text"
     },
+    "details": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::alb-usp-detail.alb-usp-detail",
+      "mappedBy": "uspList"
+    },
     "metaTags": {
       "type": "component",
       "pluginOptions": {

@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alb_usp_details",
+  "info": {
+    "singularName": "alb-usp-detail",
+    "pluralName": "alb-usp-details",
+    "displayName": "ALB-USP-Details"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-item"
+    },
+    "whyChooseUs": {
+      "type": "blocks"
+    },
+    "metaTags": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": true,
+      "required": true
+    },
+    "seoSchema": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "uspList": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::alb-usp-list.alb-usp-list",
+      "inversedBy": "details"
+    }
+  }
+}

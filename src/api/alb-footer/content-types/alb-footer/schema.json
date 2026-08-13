@@ -44,35 +44,19 @@
       },
       "required": true
     },
-    "footerLinks": {
-      "type": "component",
+    "paymentMethods": {
+      "type": "media",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.footer-links",
-      "repeatable": true
-    },
-    "socialMedia": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.social-link",
-      "repeatable": true
-    },
-    "footerMedia": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.media",
-      "repeatable": true
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

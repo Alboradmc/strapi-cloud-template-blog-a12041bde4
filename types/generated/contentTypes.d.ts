@@ -597,18 +597,6 @@ export interface ApiAlbFooterAlbFooter extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footerLinks: Schema.Attribute.Component<'shared.footer-links', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    footerMedia: Schema.Attribute.Component<'shared.media', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     footerSection: Schema.Attribute.Component<'shared.footer-links', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -620,13 +608,14 @@ export interface ApiAlbFooterAlbFooter extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::alb-footer.alb-footer'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    socialMedia: Schema.Attribute.Component<'shared.social-link', true> &
+    paymentMethods: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -791,6 +780,58 @@ export interface ApiAlbStaticPageAlbStaticPage
   };
 }
 
+export interface ApiAlbUspDetailAlbUspDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'alb_usp_details';
+  info: {
+    displayName: 'ALB-USP-Details';
+    pluralName: 'alb-usp-details';
+    singularName: 'alb-usp-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-usp-detail.alb-usp-detail'
+    > &
+      Schema.Attribute.Private;
+    metaTags: Schema.Attribute.Component<'shared.seo', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    seoSchema: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    services: Schema.Attribute.Component<'shared.service-item', true>;
+    shortDescription: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::alb-usp-list.alb-usp-list'
+    >;
+    whyChooseUs: Schema.Attribute.Blocks;
+  };
+}
+
 export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
   collectionName: 'alb_usp_lists';
   info: {
@@ -806,6 +847,10 @@ export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    details: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::alb-usp-detail.alb-usp-detail'
+    >;
     icon: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1488,6 +1533,7 @@ declare module '@strapi/strapi' {
       'api::alb-header.alb-header': ApiAlbHeaderAlbHeader;
       'api::alb-homepage.alb-homepage': ApiAlbHomepageAlbHomepage;
       'api::alb-static-page.alb-static-page': ApiAlbStaticPageAlbStaticPage;
+      'api::alb-usp-detail.alb-usp-detail': ApiAlbUspDetailAlbUspDetail;
       'api::alb-usp-list.alb-usp-list': ApiAlbUspListAlbUspList;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
