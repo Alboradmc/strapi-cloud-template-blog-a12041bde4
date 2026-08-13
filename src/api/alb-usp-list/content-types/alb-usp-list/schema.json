@@ -25,7 +25,7 @@
     },
     "details": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::alb-usp-detail.alb-usp-detail",
       "mappedBy": "uspList"
     },

@@ -848,7 +848,7 @@ export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     details: Schema.Attribute.Relation<
-      'oneToOne',
+      'oneToMany',
       'api::alb-usp-detail.alb-usp-detail'
     >;
     icon: Schema.Attribute.String;
