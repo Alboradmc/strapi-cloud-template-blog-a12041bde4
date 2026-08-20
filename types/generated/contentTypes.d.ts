@@ -681,6 +681,15 @@ export interface ApiAlbHomepageAlbHomepage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    banner: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -690,6 +699,15 @@ export interface ApiAlbHomepageAlbHomepage extends Struct.SingleTypeSchema {
       'api::alb-homepage.alb-homepage'
     >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mobileBanner: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
