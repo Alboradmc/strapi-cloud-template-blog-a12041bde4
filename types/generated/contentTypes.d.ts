@@ -726,6 +726,106 @@ export interface ApiAlbHomepageAlbHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAlbOfferDetailAlbOfferDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'alb_offer_details';
+  info: {
+    displayName: 'ALB-Offer-Detail';
+    pluralName: 'alb-offer-details';
+    singularName: 'alb-offer-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alb_offer_list: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::alb-offer-list.alb-offer-list'
+    >;
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-offer-detail.alb-offer-detail'
+    > &
+      Schema.Attribute.Private;
+    metaTags: Schema.Attribute.Component<'shared.seo', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    seoSchema: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAlbOfferListAlbOfferList
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'alb_offer_lists';
+  info: {
+    displayName: 'ALB-Offer-List';
+    pluralName: 'alb-offer-lists';
+    singularName: 'alb-offer-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alb_offer_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::alb-offer-detail.alb-offer-detail'
+    >;
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-offer-list.alb-offer-list'
+    > &
+      Schema.Attribute.Private;
+    metaTags: Schema.Attribute.Component<'shared.seo', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    openInNewTab: Schema.Attribute.Boolean;
+    promocode: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seoSchema: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ApiAlbStaticPageAlbStaticPage
   extends Struct.CollectionTypeSchema {
   collectionName: 'alb_static_pages';
@@ -1550,6 +1650,8 @@ declare module '@strapi/strapi' {
       'api::alb-footer.alb-footer': ApiAlbFooterAlbFooter;
       'api::alb-header.alb-header': ApiAlbHeaderAlbHeader;
       'api::alb-homepage.alb-homepage': ApiAlbHomepageAlbHomepage;
+      'api::alb-offer-detail.alb-offer-detail': ApiAlbOfferDetailAlbOfferDetail;
+      'api::alb-offer-list.alb-offer-list': ApiAlbOfferListAlbOfferList;
       'api::alb-static-page.alb-static-page': ApiAlbStaticPageAlbStaticPage;
       'api::alb-usp-detail.alb-usp-detail': ApiAlbUspDetailAlbUspDetail;
       'api::alb-usp-list.alb-usp-list': ApiAlbUspListAlbUspList;

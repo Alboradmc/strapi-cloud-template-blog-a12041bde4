@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alb_offer_details",
+  "info": {
+    "singularName": "alb-offer-detail",
+    "pluralName": "alb-offer-details",
+    "displayName": "ALB-Offer-Detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alb_offer_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::alb-offer-list.alb-offer-list",
+      "inversedBy": "alb_offer_detail"
+    },
+    "metaTags": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": true,
+      "required": true
+    },
+    "seoSchema": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
