@@ -15,6 +15,9 @@
     }
   },
   "attributes": {
+    "Title": {
+      "type": "string"
+    },
     "metaTags": {
       "type": "component",
       "pluginOptions": {
