@@ -738,6 +738,11 @@ export interface ApiAlbOfferDetailAlbOfferDetail
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     alb_offer_list: Schema.Attribute.Relation<
       'oneToOne',
@@ -748,12 +753,11 @@ export interface ApiAlbOfferDetailAlbOfferDetail
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-offer-detail.alb-offer-detail'
-    > &
-      Schema.Attribute.Private;
+    >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -787,6 +791,11 @@ export interface ApiAlbOfferListAlbOfferList
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     alb_offer_detail: Schema.Attribute.Relation<
       'oneToOne',
@@ -797,12 +806,11 @@ export interface ApiAlbOfferListAlbOfferList
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-offer-list.alb-offer-list'
-    > &
-      Schema.Attribute.Private;
+    >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -838,6 +846,11 @@ export interface ApiAlbPageBannerAlbPageBanner
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     banner: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.SetPluginOptions<{
@@ -850,12 +863,11 @@ export interface ApiAlbPageBannerAlbPageBanner
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-page-banner.alb-page-banner'
-    > &
-      Schema.Attribute.Private;
+    >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -967,18 +979,22 @@ export interface ApiAlbUspDetailAlbUspDetail
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-usp-detail.alb-usp-detail'
-    > &
-      Schema.Attribute.Private;
+    >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1018,6 +1034,11 @@ export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1028,12 +1049,11 @@ export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
       'api::alb-usp-detail.alb-usp-detail'
     >;
     icon: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-usp-list.alb-usp-list'
-    > &
-      Schema.Attribute.Private;
+    >;
     metaTags: Schema.Attribute.Component<'shared.seo', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
