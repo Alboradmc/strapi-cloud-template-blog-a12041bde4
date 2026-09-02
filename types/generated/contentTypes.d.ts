@@ -527,7 +527,12 @@ export interface ApiAlbBlogAlbBlog extends Struct.CollectionTypeSchema {
     relaredBlog: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-blog.alb-blog'
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     seoSchema: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -752,7 +757,12 @@ export interface ApiAlbOfferDetailAlbOfferDetail
     alb_offer_list: Schema.Attribute.Relation<
       'oneToOne',
       'api::alb-offer-list.alb-offer-list'
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -825,7 +835,12 @@ export interface ApiAlbOfferListAlbOfferList
     alb_offer_detail: Schema.Attribute.Relation<
       'oneToOne',
       'api::alb-offer-detail.alb-offer-detail'
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1126,7 +1141,12 @@ export interface ApiAlbUspDetailAlbUspDetail
     uspList: Schema.Attribute.Relation<
       'manyToOne',
       'api::alb-usp-list.alb-usp-list'
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     whyChooseUs: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1164,7 +1184,12 @@ export interface ApiAlbUspListAlbUspList extends Struct.CollectionTypeSchema {
     details: Schema.Attribute.Relation<
       'oneToMany',
       'api::alb-usp-detail.alb-usp-detail'
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     icon: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

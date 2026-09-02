@@ -86,7 +86,12 @@
     "relaredBlog": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::alb-blog.alb-blog"
+      "target": "api::alb-blog.alb-blog",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "weatherInfo": {
       "type": "component",

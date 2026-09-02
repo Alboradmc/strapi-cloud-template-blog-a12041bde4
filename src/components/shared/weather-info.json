@@ -39,7 +39,12 @@
             "allowedTypes": [
                 "images",
                 "files"
-            ]
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         },
         "bestTimeIcon": {
             "type": "media",
@@ -48,7 +53,12 @@
             "allowedTypes": [
                 "images",
                 "files"
-            ]
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         },
         "targetAudienceIcon": {
             "type": "media",
@@ -57,7 +67,12 @@
             "allowedTypes": [
                 "images",
                 "files"
-            ]
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         }
     }
 }

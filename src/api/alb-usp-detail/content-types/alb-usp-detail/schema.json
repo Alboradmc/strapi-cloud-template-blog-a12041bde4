@@ -103,7 +103,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::alb-usp-list.alb-usp-list",
-      "inversedBy": "details"
+      "inversedBy": "details",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

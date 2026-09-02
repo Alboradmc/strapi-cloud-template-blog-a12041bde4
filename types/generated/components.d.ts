@@ -8,8 +8,19 @@ export interface SharedAppDownload extends Struct.ComponentSchema {
   };
   attributes: {
     Images: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -19,8 +30,18 @@ export interface SharedFooterLinks extends Struct.ComponentSchema {
     displayName: 'Footer Links';
   };
   attributes: {
-    Footer_Link: Schema.Attribute.Component<'shared.navigation', true>;
-    Heading: Schema.Attribute.String;
+    Footer_Link: Schema.Attribute.Component<'shared.navigation', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -71,10 +92,33 @@ export interface SharedNavigation extends Struct.ComponentSchema {
     icon: 'arrowLeft';
   };
   attributes: {
-    Icon: Schema.Attribute.String;
-    OpenInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    URL: Schema.Attribute.String & Schema.Attribute.Required;
+    Icon: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    OpenInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    URL: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -111,10 +155,27 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
-    property: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    property: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     tag: Schema.Attribute.Enumeration<['Meta', 'Link']> &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'Meta'>;
   };
 }
@@ -125,9 +186,25 @@ export interface SharedServiceItem extends Struct.ComponentSchema {
     displayName: 'Service Item';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    icon: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -151,14 +228,35 @@ export interface SharedSocialLink extends Struct.ComponentSchema {
   };
   attributes: {
     Icon: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Link: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    OpenInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    OpenInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -169,8 +267,20 @@ export interface SharedTitleDescription extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -181,7 +291,12 @@ export interface SharedWeatherInfo extends Struct.ComponentSchema {
     icon: 'cloud';
   };
   attributes: {
-    bestTimeIcon: Schema.Attribute.Media<'images' | 'files'>;
+    bestTimeIcon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     bestTimeToVisit: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -194,14 +309,24 @@ export interface SharedWeatherInfo extends Struct.ComponentSchema {
           localized: true;
         };
       }>;
-    currentWeatherIcon: Schema.Attribute.Media<'images' | 'files'>;
+    currentWeatherIcon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     targetAudience: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    targetAudienceIcon: Schema.Attribute.Media<'images' | 'files'>;
+    targetAudienceIcon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 

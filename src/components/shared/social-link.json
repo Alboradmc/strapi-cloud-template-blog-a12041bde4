@@ -9,18 +9,33 @@
     "Title": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Link": {
       "type": "string",
       "required": true,
       "unique": true,
-      "regex": "^https?:\\/\\/(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}([\\/\\w\\-.?=&%+]*)?$"
+      "regex": "^https?:\\/\\/(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}([\\/\\w\\-.?=&%+]*)?$",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "OpenInNewTab": {
       "type": "boolean",
       "required": false,
-      "default": false
+      "default": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Icon": {
       "type": "media",
@@ -29,7 +44,12 @@
       "allowedTypes": [
         "images",
         "files"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   },
   "config": {}

@@ -75,7 +75,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::alb-offer-detail.alb-offer-detail",
-      "inversedBy": "alb_offer_list"
+      "inversedBy": "alb_offer_list",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "metaTags": {
       "type": "component",

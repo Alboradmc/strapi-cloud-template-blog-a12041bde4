@@ -51,7 +51,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::alb-usp-detail.alb-usp-detail",
-      "mappedBy": "uspList"
+      "mappedBy": "uspList",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "metaTags": {
       "type": "component",

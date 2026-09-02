@@ -6,12 +6,22 @@
   "options": {},
   "attributes": {
     "Heading": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Footer_Link": {
       "type": "component",
       "component": "shared.navigation",
-      "repeatable": true
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   },
   "config": {}
