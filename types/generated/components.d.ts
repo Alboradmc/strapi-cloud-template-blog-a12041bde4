@@ -92,7 +92,7 @@ export interface SharedNavigation extends Struct.ComponentSchema {
     icon: 'arrowLeft';
   };
   attributes: {
-    Icon: Schema.Attribute.String &
+    Icon: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
