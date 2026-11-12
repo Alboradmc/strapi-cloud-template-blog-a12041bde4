@@ -67,6 +67,17 @@
         }
       }
     },
+    "whatsappBooking": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.whatsapp-booking",
+      "repeatable": false,
+      "required": false
+    },
     "metaTags": {
       "type": "component",
       "pluginOptions": {

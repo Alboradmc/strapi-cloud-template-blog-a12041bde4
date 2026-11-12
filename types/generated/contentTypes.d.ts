@@ -469,6 +469,63 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAlbB2CLoginAlbB2CLogin extends Struct.SingleTypeSchema {
+  collectionName: 'alb_b2c_logins';
+  info: {
+    description: 'Background and content for the ALB B2C login screen';
+    displayName: 'ALB-B2C-Login';
+    pluralName: 'alb-b2c-logins';
+    singularName: 'alb-b2c-login';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    backgroundAltText: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    backgroundImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-b2c-login.alb-b2c-login'
+    >;
+    mobileBackgroundImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAlbBlogAlbBlog extends Struct.CollectionTypeSchema {
   collectionName: 'alb_blogs';
   info: {
@@ -812,6 +869,15 @@ export interface ApiAlbOfferDetailAlbOfferDetail
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    whatsappBooking: Schema.Attribute.Component<
+      'shared.whatsapp-booking',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -1881,6 +1947,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::alb-b2c-login.alb-b2c-login': ApiAlbB2CLoginAlbB2CLogin;
       'api::alb-blog.alb-blog': ApiAlbBlogAlbBlog;
       'api::alb-footer.alb-footer': ApiAlbFooterAlbFooter;
       'api::alb-header.alb-header': ApiAlbHeaderAlbHeader;

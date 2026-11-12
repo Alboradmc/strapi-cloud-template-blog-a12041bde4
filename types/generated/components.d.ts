@@ -330,6 +330,57 @@ export interface SharedWeatherInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWhatsappBooking extends Struct.ComponentSchema {
+  collectionName: 'components_shared_whatsapp_bookings';
+  info: {
+    description: 'WhatsApp call-to-action with logo and phone number';
+    displayName: 'WhatsApp Booking';
+    icon: 'phone';
+  };
+  attributes: {
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    openInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+    phoneNumber: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    prefilledMessage: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -346,6 +397,7 @@ declare module '@strapi/strapi' {
       'shared.social-link': SharedSocialLink;
       'shared.title-description': SharedTitleDescription;
       'shared.weather-info': SharedWeatherInfo;
+      'shared.whatsapp-booking': SharedWhatsappBooking;
     }
   }
 }
