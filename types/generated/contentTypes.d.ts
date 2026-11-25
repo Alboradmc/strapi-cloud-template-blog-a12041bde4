@@ -1052,6 +1052,57 @@ export interface ApiAlbPageBannerAlbPageBanner
   };
 }
 
+export interface ApiAlbPartnerAlbPartner extends Struct.SingleTypeSchema {
+  collectionName: 'alb_partners';
+  info: {
+    description: 'Success Partners banner: heading, subtitle and groups of partner logos';
+    displayName: 'ALB-Partners';
+    pluralName: 'alb-partners';
+    singularName: 'alb-partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alb-partner.alb-partner'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'shared.partner-section', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAlbStaticPageAlbStaticPage
   extends Struct.CollectionTypeSchema {
   collectionName: 'alb_static_pages';
@@ -1955,6 +2006,7 @@ declare module '@strapi/strapi' {
       'api::alb-offer-detail.alb-offer-detail': ApiAlbOfferDetailAlbOfferDetail;
       'api::alb-offer-list.alb-offer-list': ApiAlbOfferListAlbOfferList;
       'api::alb-page-banner.alb-page-banner': ApiAlbPageBannerAlbPageBanner;
+      'api::alb-partner.alb-partner': ApiAlbPartnerAlbPartner;
       'api::alb-static-page.alb-static-page': ApiAlbStaticPageAlbStaticPage;
       'api::alb-usp-detail.alb-usp-detail': ApiAlbUspDetailAlbUspDetail;
       'api::alb-usp-list.alb-usp-list': ApiAlbUspListAlbUspList;

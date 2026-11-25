@@ -122,6 +122,73 @@ export interface SharedNavigation extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPartnerLogo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_partner_logos';
+  info: {
+    description: 'One partner in the Success Partners banner: name, logo and optional link';
+    displayName: 'Partner Logo';
+    icon: 'picture';
+  };
+  attributes: {
+    altText: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    openInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+    url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface SharedPartnerSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_partner_sections';
+  info: {
+    description: 'A group of partner logos, e.g. government entities or travel companies';
+    displayName: 'Partner Section';
+    icon: 'apps';
+  };
+  attributes: {
+    logos: Schema.Attribute.Component<'shared.partner-logo', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -389,6 +456,8 @@ declare module '@strapi/strapi' {
       'shared.highlight-experience': SharedHighlightExperience;
       'shared.media': SharedMedia;
       'shared.navigation': SharedNavigation;
+      'shared.partner-logo': SharedPartnerLogo;
+      'shared.partner-section': SharedPartnerSection;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
